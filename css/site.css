@@ -6051,3 +6051,38 @@ dialog.vmodal.vert {
     box-shadow: 4px 4px 0 var(--ink);
   }
 }
+
+/* Inside cards: photo on the front */
+.stop {
+  padding-top: 0 !important;
+}
+.stop-photo {
+  display: block;
+  width: calc(100% + 44px);
+  max-width: none;
+  height: 170px;
+  margin: 0 -22px 18px;
+  object-fit: cover;
+  object-position: 50% 35%;
+  filter: grayscale(1) contrast(1.05);
+  border-radius: 3px 7px 0 0;
+  transition: filter 0.3s;
+}
+.stop:hover .stop-photo {
+  filter: none;
+}
+.stop .stop-top {
+  margin-top: -52px;
+  position: relative;
+  z-index: 2;
+}
+.stop .ctape {
+  z-index: 6;
+}
+@media (max-width: 699px) {
+  .stop-photo {
+    width: calc(100% + 40px);
+    margin: 0 -20px 16px;
+    height: 150px;
+  }
+}
