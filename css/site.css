@@ -5894,3 +5894,142 @@ dialog.vmodal.vert {
   font-size: 9.5px !important;
   letter-spacing: 1.2px !important;
 }
+
+/* ===================== PHILOSOPHY ===================== */
+@font-face {
+  font-family: "Permanent Marker";
+  src: url(../fonts/permanent-marker-latin-400-normal.woff2) format("woff2");
+  font-display: swap;
+}
+:root {
+  --marker: "Permanent Marker", var(--display);
+}
+.morelife {
+  position: relative;
+  padding: 100px 0 130px;
+  color: var(--ink);
+  background: #131315 url(../assets/paper-tile.jpg);
+  background-size: 420px;
+  background-blend-mode: multiply;
+  overflow: hidden;
+}
+.morelife > .wrap {
+  position: relative;
+  z-index: 2;
+}
+.ml-kick {
+  display: inline-block;
+  margin: 0 0 6px;
+  padding-bottom: 4px;
+  border-bottom: 3px solid var(--pink);
+  font: 700 18px/1.2 var(--hand);
+  color: #f3ecdc;
+  transform: rotate(-2deg);
+}
+.ml-title {
+  margin: 0 auto 50px;
+  text-align: center;
+}
+.ml-title span {
+  display: inline-block;
+  padding: 0.08em 0.4em 0.14em;
+  font: 400 clamp(46px, 6.4vw, 98px) / 1.05 var(--marker);
+  background: var(--yellow);
+  clip-path: polygon(1% 12%, 9% 4%, 30% 9%, 55% 2%, 80% 8%, 99% 3%, 97% 40%, 100% 78%, 82% 95%, 58% 90%, 33% 98%, 10% 92%, 0 96%, 3% 55%);
+  transform: rotate(-2deg);
+}
+.ml-grid {
+  display: grid;
+  grid-template-columns: 1fr minmax(260px, 0.8fr) 1fr;
+  gap: 24px;
+  align-items: center;
+}
+.ml-col {
+  display: grid;
+  gap: 34px;
+  position: relative;
+  z-index: 2;
+}
+.ml-card {
+  position: relative;
+  display: grid;
+  grid-template-columns: 74px 1fr;
+  gap: 18px;
+  align-items: center;
+  padding: 30px 28px;
+  clip-path: polygon(0 4%, 7% 0, 22% 3%, 38% 0, 55% 3%, 72% 0, 88% 3%, 100% 0, 98% 30%, 100% 62%, 98% 100%, 80% 97%, 62% 100%, 44% 97%, 26% 100%, 9% 97%, 0 100%, 2% 66%, 0 33%);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.4);
+}
+.ml-belief { background: #f3ecdc; transform: rotate(-1.5deg); }
+.ml-pursuit { background: var(--orange); transform: rotate(1deg); }
+.ml-purpose { background: var(--pink); transform: rotate(1.5deg); }
+.ml-practice { background: var(--yellow); transform: rotate(-1deg); }
+.ml-ico {
+  display: grid;
+  place-items: center;
+  width: 74px;
+  height: 74px;
+  border-radius: 50%;
+  color: var(--ink);
+}
+.ml-belief .ml-ico { background: var(--yellow); }
+.ml-purpose .ml-ico { background: var(--teal); }
+.ml-pursuit .ml-ico,
+.ml-practice .ml-ico { background: transparent; }
+.ml-ico svg { width: 42px; height: 42px; }
+.ml-k {
+  display: inline-block;
+  margin-bottom: 8px;
+  padding-bottom: 3px;
+  border-bottom: 3px solid currentColor;
+  font: 400 15px/1.2 var(--marker);
+  text-transform: uppercase;
+}
+.ml-h {
+  margin: 0;
+  font: 700 clamp(24px, 2.2vw, 32px) / 1.08 var(--hand);
+}
+.ml-practice .ml-h,
+.ml-pursuit .ml-h { font-size: clamp(28px, 2.6vw, 40px); }
+.ml-art {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: auto;
+  align-self: end;
+  margin-bottom: -130px;
+}
+@media (max-width: 1100px) {
+  .ml-grid { grid-template-columns: 1fr 1fr; }
+  .ml-art { grid-column: 1 / -1; grid-row: 1; width: min(380px, 70%); margin: 0 auto -20px; }
+  .ml-card { grid-template-columns: 56px 1fr; padding: 24px 22px; }
+  .ml-ico { width: 56px; height: 56px; }
+  .ml-ico svg { width: 32px; height: 32px; }
+}
+@media (max-width: 699px) {
+  .morelife { padding: 80px 0 100px; }
+  .ml-title span { font-size: clamp(36px, 11vw, 52px); }
+  .ml-grid { grid-template-columns: 1fr; }
+  .ml-col { gap: 18px; }
+  .ml-h { font-size: 23px; }
+  .ml-practice .ml-h, .ml-pursuit .ml-h { font-size: 28px; }
+}
+@media (min-width: 1101px) {
+  .ml-grid { grid-template-columns: 1fr 1.05fr 1fr; gap: 0; }
+  .ml-art { width: 118%; max-width: none; margin: -60px -9% -130px; }
+  .ml-col:first-child { margin-right: -30px; }
+  .ml-col:last-child { margin-left: -30px; }
+}
+.ml-pursuit .ml-ico svg,
+.ml-practice .ml-ico svg { width: 52px; height: 52px; }
+@media (min-width: 1101px) {
+  .ml-grid { grid-template-columns: 1fr 1.1fr 1fr; }
+  .ml-art { width: 104%; margin: -50px -2% -130px; }
+  .ml-col:first-child, .ml-col:last-child { margin: 0; }
+}
+.kit-pb1 {
+  background: #f4f1ea;
+  padding: 8px 8px 30px;
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.5);
+  aspect-ratio: auto;
+}
