@@ -6033,3 +6033,21 @@ dialog.vmodal.vert {
   box-shadow: 0 14px 30px rgba(0, 0, 0, 0.5);
   aspect-ratio: auto;
 }
+.soon-stamp {
+  left: auto;
+  right: 6%;
+  top: auto;
+  bottom: 9%;
+  transform: rotate(-6deg);
+  font-size: clamp(24px, 3vw, 42px);
+}
+@media (max-width: 699px) {
+  .soon-stamp {
+    top: 8%;
+    bottom: auto;
+    right: 5%;
+    font-size: 20px;
+    border-width: 3px;
+    box-shadow: 4px 4px 0 var(--ink);
+  }
+}
