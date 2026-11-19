@@ -6153,3 +6153,16 @@ dialog.vmodal.vert {
     margin-top: 70px;
   }
 }
+
+/* Waitlist: hidden spam-trap field + sending state */
+.wl-hp {
+  position: absolute !important;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}
+.wl-go:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}

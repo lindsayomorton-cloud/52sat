@@ -160,6 +160,8 @@ const wl = $("#wl");
 const wlForm = $("#wl-form");
 const wlDone = $(".wl-done", wl);
 const wlErr = $(".wl-err", wl);
+// Waitlist signups are emailed via FormSubmit (first submission sends an activation email)
+const WL_ENDPOINT = "https://formsubmit.co/ajax/casemorton@gmail.com";
 
 function openWaitlist(interest) {
   wlForm.reset();
@@ -194,7 +196,43 @@ wlForm.addEventListener("submit", (e) => {
     email.focus();
     return;
   }
-  // TODO: send Object.fromEntries(new FormData(wlForm)) to your email service.
-  wlForm.hidden = true;
-  wlDone.hidden = false;
+  if (wlForm.elements._honey.value) {
+    // bot filled the hidden field: pretend it worked
+    wlForm.hidden = true;
+    wlDone.hidden = false;
+    return;
+  }
+  const interest = wlForm.elements.interest.value || "updates";
+  const label = { book: "Book", retreat: "Retreat", updates: "Updates" }[interest] || interest;
+  const btn = $(".wl-go", wlForm);
+  btn.disabled = true;
+  wlErr.textContent = "";
+  fetch(WL_ENDPOINT, {
+    method: "POST",
+    headers: { "Content-Type": "application/json", Accept: "application/json" },
+    body: JSON.stringify({
+      name: name.value.trim(),
+      email: email.value.trim(),
+      interest: label,
+      _subject: `52 Saturdays waitlist (${label}): ${name.value.trim()}`,
+      _replyto: email.value.trim(),
+      _template: "table",
+      _captcha: "false",
+    }),
+  })
+    .then((r) =>
+      r.json().then((j) => {
+        if (!r.ok || String(j.success) !== "true") throw new Error(j.message || "Send failed");
+      }),
+    )
+    .then(() => {
+      wlForm.hidden = true;
+      wlDone.hidden = false;
+    })
+    .catch(() => {
+      wlErr.textContent = "Something went wrong. Please try again in a minute.";
+    })
+    .finally(() => {
+      btn.disabled = false;
+    });
 });
