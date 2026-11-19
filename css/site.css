@@ -6086,3 +6086,70 @@ dialog.vmodal.vert {
     height: 150px;
   }
 }
+
+/* ===================== JOIN: full-width band ===================== */
+/* The dark background spans the full page width; content stays centered. */
+.join2 {
+  padding: 0 !important;
+  background: #14201b url(../assets/paper-tile.jpg) !important;
+  background-size: 420px !important;
+  background-blend-mode: multiply !important;
+  color: #fff;
+}
+.join2 .wrap {
+  background: none !important;
+  box-shadow: none;
+  border-radius: 0;
+  max-width: 1180px;
+  margin-bottom: 0 !important;
+}
+.ft2 {
+  padding-top: 100px !important;
+  border-top: 1px solid rgba(233, 228, 216, 0.1);
+}
+@media (max-width: 900px) {
+  .ft2 {
+    padding-top: 80px !important;
+  }
+}
+.join2 .wrap::after {
+  display: none;
+}
+.join2::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(
+    40% 70% at 28% 60%,
+    rgba(247, 244, 28, 0.16),
+    transparent 70%
+  );
+}
+
+/* Hero: give "Let's make them really good." room inside the brush highlight */
+.copy h1.h1-long .l3 .mk {
+  padding: 0.16em 0.85em 0.12em 0.9em !important;
+}
+
+/* Retreat: smaller peaks + sun artwork */
+.event .land img.peaks {
+  width: min(880px, 70%) !important;
+}
+@media (max-width: 699px) {
+  .event .land img.peaks {
+    width: 92% !important;
+  }
+}
+
+/* About Case: keep the "Deeply loved" sticker clear of the Meet Case video card */
+@media (min-width: 1101px) {
+  .kit-real.sticker-tag {
+    margin-left: 120px;
+  }
+}
+@media (max-width: 900px) {
+  .kit-real.sticker-tag {
+    margin-top: 70px;
+  }
+}
